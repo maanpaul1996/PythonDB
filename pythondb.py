@@ -14,7 +14,7 @@ class PythonDB:
 		if values == None or table_name == None:
 			"Error : Table name or Values is missing"
 		elif table_name not in self.db.keys():
-			print "Error : Table '%s' doesn't exist" %(table_name)
+			print ("Error : Table '%s' doesn't exist" %(table_name))
 		else:
 			self.db[table_name].append(values)
 
@@ -27,7 +27,7 @@ class PythonDB:
 		if table_name == None:
 			"Error : Table name is missing"
 		elif table_name not in self.db.keys():
-			print "Error : Table '%s' doesn't exist" %(table_name)
+			print ("Error : Table '%s' doesn't exist" %(table_name))
 		else:
 			if condition  == None or not condition:
 				for row in self.db[table_name]:
@@ -158,7 +158,7 @@ class PythonDB:
 						if (data[key].lower() if isinstance(data[key].lower(), int) else data[key].lower()) <= (temp_value[1] if isinstance(temp_value[1], int) else temp_value[1]):
 							allow=True
 					elif temp_value[0].lower() == "<>":
-						if (data[key].lower() if isinstance(data[key].lower(), int) else data[key].lower()) <> (temp_value[1] if isinstance(temp_value[1], int) else temp_value[1]):
+						if (data[key].lower() if isinstance(data[key].lower(), int) else data[key].lower()) != (temp_value[1] if isinstance(temp_value[1], int) else temp_value[1]):
 							allow=True
 				elif (data[key].lower() if isinstance(data[key], str) else data[key]) == (value.lower() if isinstance(value, str) else value):
 					allow=True
